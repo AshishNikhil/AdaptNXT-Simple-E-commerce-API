@@ -22,7 +22,7 @@ Content-Type: application/json
 
 # Copy the token from above response and paste below
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJpYXQiOjE3NTE4NzMzNzV9.oOiwPURfclHSwalRx0-qBg9kekALphqFw4EXaRwxgBE
+@token = 
 
 ### Get products
 GET http://localhost:3000/products?search=shirt&category=Clothing&limit=5&offset=0
