@@ -1,0 +1,95 @@
+### Register a new user
+POST http://localhost:3000/register/
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "john123",
+  "name": "John Doe",
+  "usertype": "admin"
+}
+
+### Login as user
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "john123"
+}
+
+###
+
+# Copy the token from above response and paste below
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJpYXQiOjE3NTE4NzMzNzV9.oOiwPURfclHSwalRx0-qBg9kekALphqFw4EXaRwxgBE
+
+### Get products
+GET http://localhost:3000/products?search=shirt&category=Clothing&limit=5&offset=0
+Authorization: Bearer {{token}}
+
+### Add a new product
+POST http://localhost:3000/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Gaming Laptop",
+  "category": "Electronics",
+  "price": 1499.99
+}
+
+### Update product
+PUT http://localhost:3000/products/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Gaming Laptop Pro",
+  "category": "Electronics",
+  "price": 1699.99,
+  "productid": 1
+}
+
+### Delete product
+DELETE http://localhost:3000/products/1
+Authorization: Bearer {{token}}
+
+
+### View cart
+GET http://localhost:3000/cart
+Authorization: Bearer {{token}}
+
+### Add to cart
+POST http://localhost:3000/cart
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "product_id": 2,
+  "quantity": 2
+}
+
+### Update cart quantity
+PUT http://localhost:3000/cart/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "quantity": 5
+}
+
+
+### Remove from cart
+DELETE http://localhost:3000/cart/1
+Authorization: Bearer {{token}}
+
+
+### Place an order
+POST http://localhost:3000/orders
+Authorization: Bearer {{token}}
+
+
+### View orders
+GET http://localhost:3000/orders
+Authorization: Bearer {{token}}

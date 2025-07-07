@@ -1,0 +1,41 @@
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS order_items;
+
+CREATE TABLE user (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT UNIQUE,
+  name TEXT,
+  username TEXT UNIQUE,
+  password TEXT,
+  usertype TEXT
+);
+
+CREATE TABLE products (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  category TEXT,
+  price REAL
+);
+
+CREATE TABLE cart (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT,
+  product_id INTEGER,
+  quantity INTEGER
+);
+
+CREATE TABLE orders (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE order_items (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  order_id INTEGER,
+  product_id INTEGER,
+  quantity INTEGER
+);
